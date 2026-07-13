@@ -1,0 +1,26 @@
+/* GTek Brand Tokens — copiados de BizibilityHub-Web site.css */
+:root {
+  --gtek-primary-blue:     #2E86C1;
+  --gtek-secondary-blue:   #3498DB;
+  --gtek-primary-orange:   #F97316;
+  --gtek-secondary-orange: #FB923C;
+  --gtek-dark-blue:        #0F172A;
+
+  --gtek-white:       #FFFFFF;
+  --gtek-light-gray:  #F9FAFB;
+  --gtek-glass-bg:    rgba(46, 134, 193, 0.05);
+  --gtek-glass-border:rgba(46, 134, 193, 0.1);
+
+  --gtek-text-dark:   #1F2937;
+  --gtek-text-gray:   #6B7280;
+  --gtek-text-white:  #FFFFFF;
+
+  --gradient-primary: linear-gradient(135deg, #2E86C1 0%, #F97316 100%);
+  --gradient-blue:    linear-gradient(135deg, #2E86C1 0%, #3498DB 100%);
+  --gradient-orange:  linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+  --gradient-dark:    linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+
+  --gtek-success: #22c55e;
+  --gtek-error:   #ef4444;
+  --gtek-warning: #f97316;
+}

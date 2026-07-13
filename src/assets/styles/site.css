@@ -1,0 +1,556 @@
+/* Guatemaltek Brand Colors - From REFERENCEWEB */
+:root {
+  /* Primary Brand Colors */
+  --gtek-primary-blue: #2E86C1;
+  --gtek-secondary-blue: #3498DB;
+  --gtek-primary-orange: #F97316;
+  --gtek-secondary-orange: #FB923C;
+  --gtek-dark-blue: #0F172A;
+  
+  /* Background Colors */
+  --gtek-white: #FFFFFF;
+  --gtek-light-gray: #F9FAFB;
+  --gtek-glass-bg: rgba(46, 134, 193, 0.05);
+  --gtek-glass-border: rgba(46, 134, 193, 0.1);
+  
+  /* Text Colors */
+  --gtek-text-dark: #1F2937;
+  --gtek-text-gray: #6B7280;
+  --gtek-text-white: #FFFFFF;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #2E86C1 0%, #F97316 100%);
+  --gradient-blue: linear-gradient(135deg, #2E86C1 0%, #3498DB 100%);
+  --gradient-orange: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+  --gradient-dark: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  
+  /* Status Colors for Dashboard */
+  --gtek-success: #22c55e;
+  --gtek-error: #ef4444;
+  --gtek-warning: #f97316;
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Global Guatemaltek Theme */
+html {
+  position: relative;
+  min-height: 100%;
+  font-size: 14px;
+  overflow-x: clip; /* clip instead of hidden — preserves position:sticky in WebKit/Safari */
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  background: linear-gradient(135deg, var(--gtek-dark-blue) 0%, #1E293B 100%);
+  color: var(--gtek-text-white);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 80px; /* Height of the footer */
+  min-height: 100vh;
+  min-width: 320px; /* below 320px show scroll rather than break layout */
+  overflow-x: hidden; /* prevents navbar 45px horizontal scrollbar */
+}
+
+/* Dashboard specific styling - keep dark theme for monitoring interface */
+.dashboard-page {
+  background-color: var(--gtek-dark-blue);
+  color: var(--gtek-text-white);
+}
+
+.dashboard-page .main-container {
+  background-color: var(--gtek-dark-blue);
+}
+
+/* Navigation Styling */
+.navbar-guatemaltek {
+  background: rgba(255, 255, 255, 0.95) !important;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--gtek-glass-border);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar-guatemaltek .navbar-brand {
+  color: var(--gtek-text-dark) !important;
+  font-weight: 600;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-guatemaltek .navbar-brand img {
+  height: 60px;
+  margin-right: 0.5rem;
+}
+
+.navbar-guatemaltek .navbar-brand:hover {
+  color: var(--gtek-primary-blue) !important;
+}
+
+.navbar-guatemaltek .nav-link {
+  color: var(--gtek-text-dark) !important;
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-guatemaltek .nav-link:hover {
+  color: var(--gtek-primary-blue) !important;
+}
+
+.navbar-guatemaltek .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background: var(--gradient-primary);
+  transition: all 0.3s ease;
+}
+
+.navbar-guatemaltek .nav-link:hover::after {
+  width: 80%;
+  left: 10%;
+}
+
+/* Dashboard Navigation - Keep dark for monitoring pages */
+.dashboard-page .navbar-guatemaltek {
+  background: rgba(15, 23, 42, 0.95) !important;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.dashboard-page .navbar-guatemaltek .navbar-brand,
+.dashboard-page .navbar-guatemaltek .nav-link {
+  color: var(--gtek-text-white) !important;
+}
+
+.dashboard-page .navbar-guatemaltek .nav-link:hover {
+  color: var(--gtek-primary-orange) !important;
+}
+
+/* Container Styling */
+.main-container {
+  background-color: transparent;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Glass Morphism Cards */
+.gtek-card, .glass-card {
+  background: var(--gtek-white);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--gtek-glass-border);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.gtek-card:hover, .glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(46, 134, 193, 0.15);
+}
+
+.gtek-card-header {
+  background-color: var(--gtek-secondary-dark);
+  color: var(--gtek-text-primary);
+  padding: 1rem 1.5rem;
+  border-radius: 8px 8px 0 0;
+  border-bottom: 1px solid var(--gtek-border);
+  font-weight: 600;
+}
+
+/* Metric Cards */
+.metric-card {
+  background-color: var(--gtek-card-dark);
+  border: 1px solid var(--gtek-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.metric-card.total { border-left: 4px solid var(--gtek-primary-blue); }
+.metric-card.success { border-left: 4px solid var(--gtek-success); }
+.metric-card.error { border-left: 4px solid var(--gtek-error); }
+.metric-card.warning { border-left: 4px solid var(--gtek-warning); }
+
+.metric-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.metric-value.total { color: var(--gtek-primary-blue); }
+.metric-value.success { color: var(--gtek-success); }
+.metric-value.error { color: var(--gtek-error); }
+.metric-value.warning { color: var(--gtek-warning); }
+
+.metric-label {
+  color: var(--gtek-text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Footer */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
+  border-top: 1px solid rgba(46, 134, 193, 0.3);
+  color: var(--gtek-text-white);
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer a {
+  color: var(--gtek-primary-blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: var(--gtek-secondary-blue);
+}
+
+/* Form Controls */
+.form-control {
+  background-color: var(--gtek-card-dark);
+  border: 1px solid var(--gtek-border);
+  color: var(--gtek-text-primary);
+}
+
+.form-control:focus {
+  background-color: var(--gtek-card-dark);
+  border-color: var(--gtek-primary-blue);
+  color: var(--gtek-text-primary);
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+}
+
+/* Guatemaltek Button Styles */
+.btn-primary {
+  background: var(--gradient-primary);
+  border: none;
+  color: var(--gtek-text-white);
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  text-transform: none;
+}
+
+.btn-primary:hover {
+  background: var(--gradient-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(46, 134, 193, 0.3);
+}
+
+.btn-outline-light {
+  background: transparent;
+  border: 2px solid var(--gtek-primary-blue);
+  color: var(--gtek-primary-blue);
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background: var(--gtek-primary-blue);
+  color: var(--gtek-text-white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(46, 134, 193, 0.3);
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem var(--gtek-primary-blue);
+}
+
+/* Home Page Styles */
+
+/* Hero Section */
+.hero-section {
+  padding: 4rem 0;
+  background: var(--gtek-light-gray);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gtek-glass-bg);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  z-index: 0;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.min-vh-75 {
+  min-height: 75vh;
+}
+
+/* Dashboard Preview */
+.dashboard-preview {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: var(--gtek-card-dark);
+  overflow: hidden;
+}
+
+.preview-header {
+  background-color: var(--gtek-secondary-dark);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--gtek-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.preview-dots {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-red { background-color: #ef4444; }
+.dot-yellow { background-color: #f59e0b; }
+.dot-green { background-color: #10b981; }
+
+.preview-content {
+  padding: 1rem;
+}
+
+.mini-metric-card {
+  background-color: var(--gtek-secondary-dark);
+  border-radius: 6px;
+  padding: 0.75rem;
+  text-align: center;
+  border-left: 3px solid;
+}
+
+.mini-metric-card.total { border-left-color: var(--gtek-primary-blue); }
+.mini-metric-card.success { border-left-color: var(--gtek-success); }
+
+.mini-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gtek-text-primary);
+}
+
+.mini-label {
+  font-size: 0.75rem;
+  color: var(--gtek-text-secondary);
+  text-transform: uppercase;
+}
+
+.preview-chart {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  height: 60px;
+  gap: 4px;
+  margin-top: 1rem;
+}
+
+.chart-bar {
+  background: linear-gradient(to top, var(--gtek-primary-blue), var(--gtek-accent-teal));
+  width: 100%;
+  border-radius: 2px 2px 0 0;
+  opacity: 0.8;
+}
+
+/* Solutions Section */
+.solution-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.solution-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.solution-icon {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, rgba(46, 134, 193, 0.1) 0%, rgba(249, 115, 22, 0.1) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  border: 2px solid rgba(46, 134, 193, 0.2);
+  transition: all 0.3s ease;
+}
+
+.solution-card:hover .solution-icon {
+  transform: scale(1.1);
+  border-color: rgba(46, 134, 193, 0.4);
+  background: linear-gradient(135deg, rgba(46, 134, 193, 0.2) 0%, rgba(249, 115, 22, 0.2) 100%);
+}
+
+.solution-features {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.solution-features li {
+  padding: 0.25rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.solution-features li:before {
+  content: "✓";
+  color: var(--gtek-success);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* Statistics Section */
+.stat-item {
+  padding: 1rem 0.5rem;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Section Styling */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+/* Ultra-narrow screens (< 400px) */
+@media (max-width: 399px) {
+  .gtek-card, .glass-card {
+    padding: 0.75rem;
+  }
+  .contact-info-card {
+    padding: 0.75rem !important;
+  }
+}
+
+/* Mobile layout fixes — sidebar pages + data grid overflow */
+@media (max-width: 767px) {
+  /* Sidebar-based pages: the 320px sidebar collapses but margin-left stays;
+     at mobile the sidebar is hidden so content should fill the full width */
+  .dashboard-content,
+  .transactions-content {
+    margin-left: 0 !important;
+  }
+
+  /* Prevent DevExtreme DataGrid (and any wide data table) from scrolling
+     the whole page on mobile — the grid keeps its own internal scroll */
+  .main-container {
+    overflow-x: hidden;
+  }
+
+  /* Footer tagline: allow wrapping on narrow screens */
+  .footer .text-muted,
+  .footer small {
+    white-space: normal;
+  }
+}

@@ -1,0 +1,570 @@
+/* My Dashboard Styles */
+.my-dashboard {
+    height: 100vh;
+    padding: 0;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+/* Dashboard Selector Styles */
+.dashboard-selector {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.dashboard-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.dashboard-item {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-item:hover {
+    background: white;
+    border-color: #007bff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.dashboard-item.active {
+    background: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.dashboard-item.active .dashboard-meta,
+.dashboard-item.active .btn-link {
+    color: rgba(255,255,255,0.8) !important;
+}
+
+.dashboard-item-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.dashboard-item-content i {
+    font-size: 20px;
+}
+
+.dashboard-info {
+    flex: 1;
+}
+
+.dashboard-name {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.dashboard-meta {
+    font-size: 11px;
+    color: #6c757d;
+}
+
+.dashboard-actions {
+    display: flex;
+    gap: 2px;
+}
+
+.dashboard-actions .btn-link {
+    padding: 4px 8px;
+    color: #6c757d;
+}
+
+.dashboard-actions .btn-link:hover {
+    color: #007bff;
+}
+
+.sidebar-header h4 {
+    color: #495057;
+    margin-bottom: 15px;
+}
+
+.search-box input {
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.query-filters .btn {
+    font-size: 12px;
+}
+
+/* Saved Queries Styles */
+.saved-queries {
+    max-height: calc(100vh - 300px);
+    overflow-y: auto;
+}
+
+.query-item {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 12px;
+    cursor: move;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.query-item:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-color: #007bff;
+}
+
+.query-item.dragging {
+    opacity: 0.5;
+    transform: rotate(5deg);
+}
+
+.query-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #495057;
+    margin: 0 0 5px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.query-description {
+    font-size: 12px;
+    color: #6c757d;
+    margin: 8px 0;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.query-meta {
+    font-size: 11px;
+    color: #6c757d;
+}
+
+.query-meta .badge {
+    font-size: 10px;
+    margin-right: 5px;
+}
+
+.add-widget-btn {
+    color: #28a745;
+    font-size: 12px;
+}
+
+.add-widget-btn:hover {
+    color: #20c997;
+}
+
+/* Dashboard Main Area */
+.dashboard-main {
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.dashboard-header h2 {
+    color: #495057;
+    margin-bottom: 10px;
+}
+
+/* Grid Stack Customization */
+.grid-stack {
+    min-height: 400px;
+    margin-top: 20px;
+}
+
+.grid-stack-item {
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.grid-stack-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.grid-stack-item-content {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Widget Styles */
+.widget-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px 8px 0 0;
+}
+
+.widget-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.widget-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.widget-actions .btn {
+    color: rgba(255,255,255,0.8);
+    font-size: 12px;
+    padding: 2px 6px;
+}
+
+.widget-actions .btn:hover {
+    color: white;
+    background: rgba(255,255,255,0.2);
+}
+
+/* View Toggle Buttons */
+.widget-view-toggle {
+    display: flex;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.view-toggle-btn {
+    color: rgba(255,255,255,0.6) !important;
+    font-size: 11px !important;
+    padding: 4px 8px !important;
+    margin: 0 !important;
+    border-radius: 3px !important;
+    transition: all 0.2s ease;
+}
+
+.view-toggle-btn:hover {
+    color: rgba(255,255,255,0.8) !important;
+    background: rgba(255,255,255,0.1) !important;
+}
+
+.view-toggle-btn.active {
+    color: white !important;
+    background: rgba(255,255,255,0.2) !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.widget-content {
+    flex: 1;
+    padding: 15px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.widget-loading {
+    text-align: center;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.widget-error {
+    text-align: center;
+    color: #dc3545;
+    font-size: 14px;
+}
+
+/* Chart Container */
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+}
+
+.chart-container canvas {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Table Widget Styles */
+.widget-table {
+    width: 100%;
+    font-size: 11px;
+    margin-bottom: 0;
+}
+
+.widget-table th,
+.widget-table td {
+    padding: 4px 6px;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+    vertical-align: middle;
+}
+
+.widget-table th {
+    background-color: #343a40 !important;
+    color: white;
+    font-weight: 600;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.widget-table tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+.widget-table-container {
+    padding: 10px;
+}
+
+.table-info {
+    padding: 5px 0;
+    border-bottom: 1px solid #e9ecef;
+    text-align: center;
+}
+
+.table-scroll {
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    background: white;
+}
+
+/* Improve scrollbar styling for tables */
+.table-scroll::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.table-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Metric Widget Styles */
+.metric-widget {
+    text-align: center;
+    padding: 20px;
+}
+
+.metric-value {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.metric-label {
+    font-size: 14px;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Empty State */
+.empty-state {
+    padding: 60px 20px;
+    margin-top: 50px;
+}
+
+.empty-state i {
+    margin-bottom: 20px;
+}
+
+/* Drag and Drop Indicators */
+.grid-stack-placeholder {
+    background: rgba(0, 123, 255, 0.1);
+    border: 2px dashed #007bff;
+    border-radius: 8px;
+}
+
+.drop-zone {
+    background: rgba(40, 167, 69, 0.1);
+    border: 2px dashed #28a745;
+    border-radius: 8px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #28a745;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .my-dashboard .row {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        height: auto;
+        max-height: 300px;
+    }
+    
+    .dashboard-main {
+        height: auto;
+    }
+    
+    .grid-stack-item {
+        margin-bottom: 15px;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Scrollbar Styling */
+.sidebar::-webkit-scrollbar,
+.saved-queries::-webkit-scrollbar,
+.widget-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track,
+.saved-queries::-webkit-scrollbar-track,
+.widget-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb,
+.saved-queries::-webkit-scrollbar-thumb,
+.widget-content::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover,
+.saved-queries::-webkit-scrollbar-thumb:hover,
+.widget-content::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Widget Alignment Enhancements */
+.grid-stack {
+    position: relative;
+}
+
+/* Show grid lines when dragging (optional visual aid) */
+.grid-stack.grid-stack-dragging::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(to right, rgba(0,123,255,0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,123,255,0.1) 1px, transparent 1px);
+    background-size: 8.33% 80px; /* 12-column grid */
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Improve widget spacing consistency */
+.grid-stack-item {
+    transition: all 0.3s ease;
+}
+
+.grid-stack-item.grid-stack-item-moving {
+    opacity: 0.8;
+    transform: rotate(2deg);
+}
+
+/* Widget alignment tools styling */
+.dashboard-actions .btn-group {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+.dashboard-actions .btn-group .btn {
+    border-color: #dee2e6;
+}
+
+.dashboard-actions .btn-group .btn:hover {
+    background-color: #f8f9fa;
+    border-color: #007bff;
+    color: #007bff;
+}
+
+/* Compact layout improvements */
+.grid-stack.compact-mode .grid-stack-item {
+    margin-bottom: 5px;
+}
+
+/* Visual feedback for alignment actions */
+.grid-stack-item.aligning {
+    animation: alignPulse 0.5s ease-in-out;
+}
+
+@keyframes alignPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); box-shadow: 0 4px 12px rgba(0,123,255,0.3); }
+    100% { transform: scale(1); }
+}
