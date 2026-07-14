@@ -4,7 +4,7 @@ import { getTransactions, getTransactionFilterOptions } from '../services/transa
 import type { TransactionFilters } from '../types/api'
 
 export const DEFAULT_TX_FILTERS: TransactionFilters = {
-  timeMinutes:   60,
+  timeMinutes:   10,
   page:          1,
   pageSize:      25,
   sortField:     'StartTimestamp',

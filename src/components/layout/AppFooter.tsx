@@ -8,7 +8,7 @@ export default function AppFooter() {
             <span className="text-muted">Connecting Worlds. Empowering Communities.</span>
           </div>
           <div className="col-md-6 text-end">
-            <small className="text-muted">GTek Bizibility Hub v2.0</small>
+            <small className="text-muted">GTeK Bizibility Hub v1.0</small>
           </div>
         </div>
       </div>

@@ -4,10 +4,11 @@ import {
   getFilterOptions, getMetrics, getTopProcesses,
   getTransactionTrend, getTransactionsByCountry,
   getSubprocessTransactions, getOriginByStatus,
+  getIntegrationTreemap,
 } from '../services/dashboardService'
 import type { DashboardFilters } from '../types/api'
 
-export const DEFAULT_FILTERS: DashboardFilters = { TimePeriod: 'Last24Hours', TrendInterval: 'hour' }
+export const DEFAULT_FILTERS: DashboardFilters = { TimePeriod: 'Last24Hours', TrendIntervalMinutes: 60 }
 
 export function useDashboardFilterOptions() {
   return useQuery({ queryKey: ['dashboard', 'filterOptions'], queryFn: getFilterOptions, staleTime: 5 * 60_000 })
@@ -52,6 +53,13 @@ export function useOriginByStatus(filters: DashboardFilters) {
   return useQuery({
     queryKey: ['dashboard', 'originStatus', filters],
     queryFn:  () => getOriginByStatus(filters),
+  })
+}
+
+export function useIntegrationTreemap(filters: DashboardFilters) {
+  return useQuery({
+    queryKey: ['dashboard', 'treemap', filters],
+    queryFn:  () => getIntegrationTreemap(filters),
   })
 }
 

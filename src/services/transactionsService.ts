@@ -5,7 +5,7 @@ import type { TransactionsResponse, TransactionFilters } from '../types/api'
 export const getTransactions = (filters: TransactionFilters) =>
   apiClient
     .get<{ transactions: TransactionsResponse['transactions']; totalCount: number; totalPages: number }>(
-      '/TransactionsDevExtreme/GetTransactions',
+      '/Transactions/GetTransactions',
       { params: filters }
     )
     .then((r) => ({
@@ -16,5 +16,5 @@ export const getTransactions = (filters: TransactionFilters) =>
 
 export const getTransactionFilterOptions = () =>
   apiClient
-    .get<{ documentTypes: string[] }>('/TransactionsDevExtreme/GetFilterOptions')
+    .get<{ documentTypes: string[] }>('/Transactions/GetFilterOptions')
     .then((r) => r.data)

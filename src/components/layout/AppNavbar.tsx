@@ -99,6 +99,11 @@ export default function AppNavbar() {
                             </Link>
                           </li>
                         )}
+                        <li>
+                          <Link className="dropdown-item" to="/visibility/realtime">
+                            <i className="fas fa-tachometer-alt me-1" />Real Time Monitoring
+                          </Link>
+                        </li>
                         {canSee(SectionKeys.VisibilityTransactions) && (
                           <>
                             <li><hr className="dropdown-divider" /></li>
@@ -173,6 +178,16 @@ export default function AppNavbar() {
                           </Link>
                         </li>
                         <li>
+                          <Link className="dropdown-item" to="/agentic/analytics-pro">
+                            <i className="fas fa-sparkles me-1" />AI Insights Pro
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="dropdown-item" to="/agentic/builder">
+                            <i className="fas fa-hammer me-1" />AI Query Builder
+                          </Link>
+                        </li>
+                        <li>
                           <Link className="dropdown-item" to="/agentic/nahual">
                             <i className="fas fa-comment-dots me-1" />Nahual Agent
                           </Link>
@@ -182,6 +197,16 @@ export default function AppNavbar() {
                             <i className="fas fa-network-wired me-1" />Agent Hub
                           </Link>
                         </li>
+                        {isAdmin && (
+                          <>
+                            <li><hr className="dropdown-divider" /></li>
+                            <li>
+                              <Link className="dropdown-item" to="/agentic/admin">
+                                <i className="fas fa-cog me-1" />AI Pattern Admin
+                              </Link>
+                            </li>
+                          </>
+                        )}
                       </ul>
                     </li>
                   )}

@@ -1,5 +1,7 @@
 import { useState, type ReactNode } from 'react'
 
+const LS_KEY = 'financeSidebarCollapsed'
+
 interface Props {
   children: ReactNode
   onRefresh?: () => void
@@ -7,7 +9,14 @@ interface Props {
 }
 
 export default function FiltersSidebar({ children, onRefresh, loading }: Props) {
-  const [collapsed, setCollapsed] = useState(false)
+  const [collapsed, setCollapsed] = useState<boolean>(() => {
+    try { return localStorage.getItem(LS_KEY) === 'true' } catch { return false }
+  })
+
+  function toggle(next: boolean) {
+    setCollapsed(next)
+    try { localStorage.setItem(LS_KEY, String(next)) } catch { /* ignore */ }
+  }
 
   return (
     <>
@@ -15,7 +24,7 @@ export default function FiltersSidebar({ children, onRefresh, loading }: Props) 
       {collapsed && (
         <button
           className="btn btn-primary"
-          onClick={() => setCollapsed(false)}
+          onClick={() => toggle(false)}
           style={{
             position: 'fixed', left: 10, top: 154, zIndex: 999,
             width: 48, height: 48, borderRadius: '0.375rem',
@@ -36,7 +45,7 @@ export default function FiltersSidebar({ children, onRefresh, loading }: Props) 
           </h5>
           <button
             className="btn btn-sm btn-primary sidebar-toggle-btn"
-            onClick={() => setCollapsed(true)}
+            onClick={() => toggle(true)}
             title="Hide Filters"
           >
             <i className="fas fa-chevron-left" />

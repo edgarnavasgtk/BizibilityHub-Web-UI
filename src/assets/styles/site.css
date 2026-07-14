@@ -78,78 +78,84 @@ body {
   background-color: var(--gtek-dark-blue);
 }
 
-/* Navigation Styling */
+/* Navigation Styling — matches _Layout.cshtml exactly */
 .navbar-guatemaltek {
-  background: rgba(255, 255, 255, 0.95) !important;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--gtek-glass-border);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  background: rgba(15, 23, 42, 0.95) !important;
   position: sticky;
   top: 0;
-  z-index: 1000;
-  transition: all 0.3s ease;
+  z-index: 1030;
 }
 
-.navbar-guatemaltek .navbar-brand {
-  color: var(--gtek-text-dark) !important;
-  font-weight: 600;
-  font-size: 1.5rem;
-  display: flex;
-  align-items: center;
-}
-
-.navbar-guatemaltek .navbar-brand img {
-  height: 60px;
-  margin-right: 0.5rem;
-}
-
-.navbar-guatemaltek .navbar-brand:hover {
-  color: var(--gtek-primary-blue) !important;
-}
-
+.navbar-guatemaltek .navbar-brand,
 .navbar-guatemaltek .nav-link {
-  color: var(--gtek-text-dark) !important;
-  font-weight: 500;
-  position: relative;
-  padding: 0.5rem 1rem;
-  transition: all 0.3s ease;
-}
-
-.navbar-guatemaltek .nav-link:hover {
-  color: var(--gtek-primary-blue) !important;
-}
-
-.navbar-guatemaltek .nav-link::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 50%;
-  background: var(--gradient-primary);
-  transition: all 0.3s ease;
-}
-
-.navbar-guatemaltek .nav-link:hover::after {
-  width: 80%;
-  left: 10%;
-}
-
-/* Dashboard Navigation - Keep dark for monitoring pages */
-.dashboard-page .navbar-guatemaltek {
-  background: rgba(15, 23, 42, 0.95) !important;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-}
-
-.dashboard-page .navbar-guatemaltek .navbar-brand,
-.dashboard-page .navbar-guatemaltek .nav-link {
   color: var(--gtek-text-white) !important;
 }
 
-.dashboard-page .navbar-guatemaltek .nav-link:hover {
+.navbar-guatemaltek .nav-link:hover {
   color: var(--gtek-primary-orange) !important;
+}
+
+/* Compact nav-links so all items fit on large screens */
+@media (min-width: 1200px) {
+  .navbar-guatemaltek .nav-link {
+    font-size: 0.8rem;
+    padding-left: 0.4rem !important;
+    padding-right: 0.4rem !important;
+  }
+  .navbar-guatemaltek .navbar-brand img {
+    height: 36px;
+  }
+}
+
+/* Desktop dropdown */
+.navbar-guatemaltek .dropdown-menu {
+  background: rgba(15, 23, 42, 0.98) !important;
+  border-color: rgba(46,134,193,0.2) !important;
+  z-index: 1031 !important;
+}
+.navbar-guatemaltek .dropdown-item {
+  color: var(--gtek-text-white) !important;
+}
+.navbar-guatemaltek .dropdown-item:hover,
+.navbar-guatemaltek .dropdown-item:focus {
+  background: rgba(46,134,193,0.2) !important;
+  color: var(--gtek-text-white) !important;
+}
+.navbar-guatemaltek .dropdown-divider {
+  border-color: rgba(255,255,255,0.1) !important;
+}
+
+/* Hamburger toggler */
+.navbar-guatemaltek .navbar-toggler {
+  border-color: rgba(255,255,255,0.3);
+}
+.navbar-guatemaltek .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255%2C255%2C255%2C0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Mobile collapse */
+@media (max-width: 1199.98px) {
+  .navbar-guatemaltek .navbar-collapse {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background: rgba(15, 23, 42, 0.98);
+    z-index: 1031;
+    position: relative;
+  }
+  .navbar-guatemaltek .navbar-collapse .navbar-nav {
+    width: 100%;
+  }
+  .navbar-guatemaltek .navbar-collapse .dropdown-menu {
+    background: rgba(15, 23, 42, 0.98);
+    border-color: rgba(255,255,255,0.1);
+  }
+  .navbar-guatemaltek .navbar-collapse .dropdown-item {
+    color: var(--gtek-text-white) !important;
+  }
+  .navbar-guatemaltek .navbar-collapse .dropdown-item:hover {
+    background: rgba(46,134,193,0.2);
+  }
 }
 
 /* Container Styling */

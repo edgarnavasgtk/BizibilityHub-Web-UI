@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/d3-force": "^3.0.10",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@types/react-router-dom": "^5.3.3",
@@ -18,16 +19,29 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.3.0",
+    "@monaco-editor/react": "^4.7.0",
     "@tanstack/react-query": "^5.101.2",
+    "@types/qs": "^6.15.1",
+    "@types/react-grid-layout": "^2.1.0",
     "axios": "^1.18.1",
     "bootstrap": "^5.3.8",
+    "chart.js": "^4.5.1",
+    "d3-force": "^3.0.0",
     "devextreme": "^25.1.12",
     "devextreme-react": "^25.1.12",
+    "exceljs": "^4.4.0",
+    "html2canvas": "^1.4.1",
     "i18next": "^26.3.6",
+    "jspdf": "^4.2.1",
+    "mermaid": "^11.16.0",
+    "monaco-editor": "^0.55.1",
+    "qs": "^6.15.3",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
+    "react-grid-layout": "^2.2.3",
     "react-i18next": "^17.0.9",
     "react-router-dom": "^7.18.1",
+    "xlsx": "^0.18.5",
     "zustand": "^5.0.14"
   }
 }
