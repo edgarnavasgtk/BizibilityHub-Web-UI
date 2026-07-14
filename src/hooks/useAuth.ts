@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/authStore'
 import { login as apiLogin, logout as apiLogout, checkAuthStatus } from '../services/authService'
+import apiClient from '../services/apiClient'
 import { getFilterOptions } from '../services/dashboardService'
 import { AllSections } from '../constants/sectionKeys'
 import type { SectionKey } from '../constants/sectionKeys'
@@ -28,9 +29,17 @@ export function useAuth() {
       // Fetch filter options to confirm session + load basic metadata
       await getFilterOptions()
 
-      // Set user in store — role/sections refinement comes when a /me endpoint is available
+      // Probe an Admin-only endpoint to detect role
+      let role: 'Admin' | 'User' = 'User'
+      try {
+        await apiClient.get('/Admin/GetUsersForGrid')
+        role = 'Admin'
+      } catch {
+        // 403 = authenticated but not admin — that is expected for regular users
+      }
+
       setUser(
-        { id: email, displayName: email.split('@')[0], email, role: 'User' },
+        { id: email, displayName: email.split('@')[0], email, role },
         AllSections as unknown as SectionKey[]
       )
 

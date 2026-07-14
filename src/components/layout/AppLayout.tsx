@@ -11,16 +11,12 @@ export default function AppLayout() {
   }
 
   return (
-    <>
+    <div className="dashboard-page">
       <AppNavbar />
       <div className="main-container">
-        <div className="container-fluid">
-          <main role="main" className="pb-3">
-            <Outlet />
-          </main>
-        </div>
+        <Outlet />
       </div>
       <AppFooter />
-    </>
+    </div>
   )
 }

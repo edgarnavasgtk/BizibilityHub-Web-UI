@@ -6,9 +6,9 @@ import TransactionsPage from './pages/transactions/TransactionsPage'
 
 function ComingSoon({ title }: { title: string }) {
   return (
-    <div className="p-4">
-      <h4 style={{ color: 'var(--gtek-text-white)' }}>{title}</h4>
-      <p style={{ color: 'var(--gtek-text-gray)' }}>— Migración en progreso —</p>
+    <div style={{ padding: '2rem 2rem 2rem 340px', minHeight: 'calc(100vh - 160px)' }}>
+      <h4 style={{ color: 'var(--gtek-text-white)', marginBottom: '0.5rem' }}>{title}</h4>
+      <p style={{ color: 'var(--gtek-text-gray)', margin: 0 }}>— Migración en progreso —</p>
     </div>
   )
 }
