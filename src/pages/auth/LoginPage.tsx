@@ -1,4 +1,16 @@
-function LoginPage() {
+import { useState, type FormEvent } from 'react'
+import { useAuth } from '../../hooks/useAuth'
+
+export default function LoginPage() {
+  const { login, loading, error } = useAuth()
+  const [email,    setEmail]    = useState('')
+  const [password, setPassword] = useState('')
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault()
+    await login(email, password)
+  }
+
   return (
     <div
       className="d-flex align-items-center justify-content-center"
@@ -7,7 +19,7 @@ function LoginPage() {
       <div
         className="card p-4"
         style={{
-          width: 400,
+          width: 420,
           background: 'rgba(30, 41, 59, 0.95)',
           border: '1px solid var(--gtek-glass-border)',
           borderRadius: 12,
@@ -15,18 +27,34 @@ function LoginPage() {
         }}
       >
         <div className="text-center mb-4">
-          <h4 style={{ color: 'var(--gtek-text-white)', fontWeight: 700 }}>BizibilityHub</h4>
-          <p style={{ color: 'var(--gtek-text-gray)', fontSize: 14 }}>Inicia sesión para continuar</p>
+          <img
+            src="/images/BizibilityHubLogoNoBG.png"
+            alt="BizibilityHub"
+            style={{ height: 56, marginBottom: 12 }}
+          />
+          <p style={{ color: 'var(--gtek-text-gray)', fontSize: 14 }}>
+            Sign in to continue
+          </p>
         </div>
 
-        <form>
+        {error && (
+          <div className="alert alert-danger py-2 mb-3" style={{ fontSize: 13 }}>
+            <i className="fas fa-exclamation-circle me-2" />{error}
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label className="form-label" style={{ color: 'var(--gtek-text-gray)', fontSize: 13 }}>
-              Correo electrónico
+              Email
             </label>
             <input
               type="email"
               className="form-control"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              autoFocus
               style={{
                 background: 'rgba(46,134,193,0.08)',
                 border: '1px solid var(--gtek-glass-border)',
@@ -36,11 +64,14 @@ function LoginPage() {
           </div>
           <div className="mb-4">
             <label className="form-label" style={{ color: 'var(--gtek-text-gray)', fontSize: 13 }}>
-              Contraseña
+              Password
             </label>
             <input
               type="password"
               className="form-control"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
               style={{
                 background: 'rgba(46,134,193,0.08)',
                 border: '1px solid var(--gtek-glass-border)',
@@ -51,8 +82,9 @@ function LoginPage() {
           <button
             type="submit"
             className="btn w-100"
+            disabled={loading}
             style={{
-              background: 'var(--gradient-primary)',
+              background: loading ? 'rgba(46,134,193,0.5)' : 'var(--gradient-primary)',
               color: '#fff',
               fontWeight: 600,
               border: 'none',
@@ -60,12 +92,13 @@ function LoginPage() {
               padding: '10px',
             }}
           >
-            Iniciar sesión
+            {loading
+              ? <><i className="fas fa-spinner fa-spin me-2" />Signing in…</>
+              : <><i className="fas fa-sign-in-alt me-2" />Sign In</>
+            }
           </button>
         </form>
       </div>
     </div>
   )
 }
-
-export default LoginPage
