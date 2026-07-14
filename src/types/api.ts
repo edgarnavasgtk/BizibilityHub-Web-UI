@@ -65,42 +65,45 @@ export interface DashboardFilters {
 }
 
 // ── Transactions ────────────────────────────────────────────────────────────
+// Field names match what TransactionsDevExtremeController.GetTransactions returns
 export interface Transaction {
-  correlationId:      string
-  transactionId:      string
-  messageId:          string
-  documentNumber:     string
-  documentType:       string
-  status:             string
-  businessProcess:    string
-  businessSubprocess: string
-  brand:              string
-  environment:        string
-  country:            string
-  sourceSystem:       string
-  targetSystem:       string
-  direction:          string
-  startTimestamp:     string
-  endTimestamp:       string
-  executionTimeMs:    number
-  integrationName:    string
-  errorMessage:       string
-  errorCode:          string
-  childCount:         number
+  messageId:              string
+  transactionId:          string
+  correlationId:          string
+  documentNumber:         string
+  documentType:           string
+  referenceDocumentNumber?: string
+  referenceDocumentType?:   string
+  status:                 string
+  direction:              string
+  startTimestamp:         string
+  endTimestamp?:          string
+  executionTimeMs:        number
+  integrationName:        string
+  sourceSystem:           string
+  targetSystem:           string
+  environmentName:        string
+  businessSegmentName:    string
+  businessProcessName:    string
+  businessSubprocessName: string
+  countryName:            string
+  brandName:              string
+  isStart?:               boolean
+  isEnd?:                 boolean
+  businessProcessStage?:  string
 }
 
 export interface TransactionsResponse {
-  data:       Transaction[]
-  totalCount: number
-  page:       number
-  pageSize:   number
-  totalPages: number
+  transactions: Transaction[]
+  totalCount:   number
+  totalPages:   number
 }
 
+// Matches TransactionsDevExtremeController.GetTransactions parameter names
 export interface TransactionFilters {
   timeMinutes?:          number
-  environmentIds?:       string
-  businessSegmentIds?:   string
+  environmentId?:        string   // singular — backend takes single int
+  businessSegmentIds?:   string   // comma-separated
   businessProcessIds?:   string
   businessSubprocessIds?: string
   brandIds?:             string

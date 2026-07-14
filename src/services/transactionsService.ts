@@ -1,12 +1,20 @@
 import apiClient from './apiClient'
 import type { TransactionsResponse, TransactionFilters } from '../types/api'
 
+// API returns { transactions, totalCount, totalPages } — remapped to TransactionsResponse shape
 export const getTransactions = (filters: TransactionFilters) =>
   apiClient
-    .get<TransactionsResponse>('/Transactions/GetTransactions', { params: filters })
-    .then((r) => r.data)
+    .get<{ transactions: TransactionsResponse['transactions']; totalCount: number; totalPages: number }>(
+      '/TransactionsDevExtreme/GetTransactions',
+      { params: filters }
+    )
+    .then((r) => ({
+      transactions: r.data.transactions ?? [],
+      totalCount:   r.data.totalCount   ?? 0,
+      totalPages:   r.data.totalPages   ?? 0,
+    } as TransactionsResponse))
 
 export const getTransactionFilterOptions = () =>
   apiClient
-    .get<{ documentTypes: string[] }>('/Transactions/GetFilterOptions')
+    .get<{ documentTypes: string[] }>('/TransactionsDevExtreme/GetFilterOptions')
     .then((r) => r.data)

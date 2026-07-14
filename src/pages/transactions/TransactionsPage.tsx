@@ -17,13 +17,13 @@ const TIME_MINUTES = [
 ]
 
 const STATUS_COLORS: Record<string, string> = {
-  Success:    'success',
-  Completed:  'success',
-  Error:      'danger',
-  Failed:     'danger',
-  Processing: 'warning',
-  Pending:    'secondary',
-  Cancelled:  'secondary',
+  SUCCESS:    'success',
+  FAILED:     'danger',
+  ERROR:      'danger',
+  TIMEOUT:    'danger',
+  PROCESSING: 'warning',
+  PENDING:    'secondary',
+  CANCELLED:  'secondary',
 }
 
 function StatusBadge({ value }: { value: string }) {
@@ -64,8 +64,8 @@ export default function TransactionsPage() {
           <label className="filter-label">Environment</label>
           <select
             className="form-select form-select-sm"
-            value={filters.environmentIds ?? ''}
-            onChange={(e) => update({ environmentIds: e.target.value })}
+            value={filters.environmentId ?? ''}
+            onChange={(e) => update({ environmentId: e.target.value })}
             style={selectStyle}
           >
             <option value="">All</option>
@@ -108,11 +108,11 @@ export default function TransactionsPage() {
             style={selectStyle}
           >
             <option value="">All</option>
-            <option value="Success">Success</option>
-            <option value="Error">Error</option>
-            <option value="Processing">Processing</option>
-            <option value="Pending">Pending</option>
-            <option value="Cancelled">Cancelled</option>
+            <option value="SUCCESS">SUCCESS</option>
+            <option value="FAILED">FAILED</option>
+            <option value="ERROR">ERROR</option>
+            <option value="TIMEOUT">TIMEOUT</option>
+            <option value="PROCESSING">PROCESSING</option>
           </select>
         </div>
 
@@ -161,8 +161,8 @@ export default function TransactionsPage() {
         >
           <div className="card-body p-0">
             <DataGrid
-              dataSource={data?.data ?? []}
-              keyExpr="correlationId"
+              dataSource={data?.transactions ?? []}
+              keyExpr="messageId"
               showBorders={false}
               showColumnLines={true}
               showRowLines={true}
@@ -196,19 +196,20 @@ export default function TransactionsPage() {
                 width={160}
                 fixed={true}
               />
-              <Column dataField="correlationId" caption="Correlation ID" width={240} />
+              <Column dataField="correlationId"          caption="Correlation ID"    width={240} />
               <Column
                 dataField="status"
                 caption="Status"
-                width={110}
+                width={120}
                 alignment="center"
                 cellRender={({ value }) => <StatusBadge value={value} />}
               />
-              <Column dataField="businessProcess"    caption="Business Process"    width={180} />
-              <Column dataField="businessSubprocess" caption="Sub-Process"         width={180} />
-              <Column dataField="brand"              caption="Brand"               width={130} />
-              <Column dataField="environment"        caption="Environment"         width={120} />
-              <Column dataField="country"            caption="Country"             width={110} />
+              <Column dataField="businessProcessName"    caption="Business Process"  width={180} />
+              <Column dataField="businessSubprocessName" caption="Sub-Process"       width={180} />
+              <Column dataField="brandName"              caption="Brand"             width={130} />
+              <Column dataField="businessSegmentName"    caption="Segment"           width={150} visible={false} />
+              <Column dataField="environmentName"        caption="Environment"       width={120} />
+              <Column dataField="countryName"            caption="Country"           width={110} />
               <Column
                 dataField="startTimestamp"
                 caption="Start"
@@ -225,8 +226,10 @@ export default function TransactionsPage() {
                 width={100}
                 alignment="right"
               />
-              <Column dataField="integrationName" caption="Integration"  width={200} />
-              <Column dataField="errorMessage"    caption="Error"        width={250} />
+              <Column dataField="integrationName"  caption="Integration"  width={200} />
+              <Column dataField="sourceSystem"     caption="Source"       width={150} visible={false} />
+              <Column dataField="targetSystem"     caption="Target"       width={150} visible={false} />
+              <Column dataField="messageId"        caption="Message ID"   width={240} visible={false} />
             </DataGrid>
           </div>
         </div>
