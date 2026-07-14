@@ -35,8 +35,15 @@ export function useAuth() {
       )
 
       navigate('/dashboard')
-    } catch {
-      setError('Invalid email or password.')
+    } catch (err: unknown) {
+      const isNetworkError = err instanceof Error && (
+        err.message.includes('Network Error') ||
+        err.message.includes('ECONNREFUSED') ||
+        err.message.includes('ERR_CONNECTION_REFUSED')
+      )
+      setError(isNetworkError
+        ? 'No se pudo conectar al servidor. Verifica que el backend esté corriendo.'
+        : 'Credenciales inválidas. Verifica email y contraseña.')
     } finally {
       setLoading(false)
     }

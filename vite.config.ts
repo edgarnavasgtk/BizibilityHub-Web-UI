@@ -12,13 +12,13 @@ export default defineConfig({
     port: 5173,
     proxy: {
       // All .NET MVC + API routes proxied to backend
-      '/Account':        { target: 'https://localhost:7001', changeOrigin: true, secure: false },
-      '/Dashboard':      { target: 'https://localhost:7001', changeOrigin: true, secure: false },
-      '/MainDashboard':  { target: 'https://localhost:7001', changeOrigin: true, secure: false },
-      '/Transactions':   { target: 'https://localhost:7001', changeOrigin: true, secure: false },
-      '/Reports':        { target: 'https://localhost:7001', changeOrigin: true, secure: false },
-      '/Admin':          { target: 'https://localhost:7001', changeOrigin: true, secure: false },
-      '/api':            { target: 'https://localhost:7001', changeOrigin: true, secure: false },
+      '/Account':        { target: 'https://localhost:7262', changeOrigin: true, secure: false },
+      '/Dashboard':      { target: 'https://localhost:7262', changeOrigin: true, secure: false },
+      '/MainDashboard':  { target: 'https://localhost:7262', changeOrigin: true, secure: false },
+      '/Transactions':   { target: 'https://localhost:7262', changeOrigin: true, secure: false },
+      '/Reports':        { target: 'https://localhost:7262', changeOrigin: true, secure: false },
+      '/Admin':          { target: 'https://localhost:7262', changeOrigin: true, secure: false },
+      '/api':            { target: 'https://localhost:7262', changeOrigin: true, secure: false },
     },
   },
 })
