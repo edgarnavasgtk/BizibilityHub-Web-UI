@@ -1,14 +1,26 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, Navigate } from 'react-router-dom'
+import { useAuthStore } from '../../store/authStore'
+import AppNavbar from './AppNavbar'
+import AppFooter from './AppFooter'
 
-function AppLayout() {
+export default function AppLayout() {
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated)
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />
+  }
+
   return (
-    <div className="d-flex" style={{ minHeight: '100vh', background: 'var(--gradient-dark)' }}>
-      <main className="flex-grow-1">
-        {/* Navbar and sidebar will be added in Parte 2 */}
-        <Outlet />
-      </main>
-    </div>
+    <>
+      <AppNavbar />
+      <div className="main-container">
+        <div className="container-fluid">
+          <main role="main" className="pb-3">
+            <Outlet />
+          </main>
+        </div>
+      </div>
+      <AppFooter />
+    </>
   )
 }
-
-export default AppLayout
