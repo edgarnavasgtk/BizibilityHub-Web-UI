@@ -48,13 +48,13 @@ export default function FiltersSidebar({ children, onRefresh, loading }: Props) 
         {onRefresh && (
           <div className="mt-3 pt-3" style={{ borderTop: '1px solid rgba(255,255,255,.1)' }}>
             <button
-              className="btn btn-primary w-100"
+              className="sidebar-refresh-btn"
               onClick={onRefresh}
               disabled={loading}
             >
               {loading
-                ? <><i className="fas fa-spinner fa-spin me-2" />Loading…</>
-                : <><i className="fas fa-sync-alt me-2" />Refresh</>
+                ? <><i className="fas fa-spinner fa-spin" />Loading…</>
+                : <><i className="fas fa-sync-alt" />Refresh</>
               }
             </button>
           </div>
